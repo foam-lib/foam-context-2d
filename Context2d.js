@@ -294,6 +294,72 @@ Context2d.prototype.strokeRect4 = function(x,y,w,h){
 };
 
 /**
+ * Paints a rounded rectangle onto a context object by using the current fill style.
+ * @param rect
+ * @param radius
+ */
+Context2d.prototype.fillRoundRect = function(rect,radius){
+    this.fillRoundRect2(rect[0],rect[1],rect[2],rect[3],radius);
+};
+
+/**
+ * Paints a rounded rectangle onto a context object by using the current fill style.
+ * @param origin
+ * @param size
+ * @param radius
+ */
+Context2d.prototype.fillRoundRect2v = function(origin,size,radius){
+    this.fillRoundRect2(origin[0],origin[1],size[0],size[1],radius);
+};
+
+/**
+ * Paints a rounded rectangle onto a context object by using the current fill style.
+ * @param x
+ * @param y
+ * @param width
+ * @param height
+ * @param radius
+ */
+Context2d.prototype.fillRoundRect2 = function(x,y,width,height,radius){
+    this._ctx.beginPath();
+    this.roundRect2(x,y,width,height,radius);
+    this._ctx.fill();
+};
+
+/**
+ * Creates an outline of a rounded rectangle on a canvas by using the current stroke, line width, and join styles.
+ * @param rect
+ * @param radius
+ */
+Context2d.prototype.strokeRoundRect = function(rect,radius){
+    this.strokeRoundRect2(rect[0],rect[1],rect[2],rect[3],radius);
+};
+
+/**
+ * Creates an outline of a rounded rectangle on a canvas by using the current stroke, line width, and join styles.
+ * @param origin
+ * @param size
+ * @param radius
+ */
+Context2d.prototype.strokeRoundRect2v = function(origin,size,radius){
+    this.strokeRoundRect2(origin[0],origin[1],size[0],size[1],radius);
+};
+
+/**
+ * Creates an outline of a rounded rectangle on a canvas by using the current stroke, line width, and join styles.
+ * @param x
+ * @param y
+ * @param width
+ * @param height
+ * @param radius
+ */
+Context2d.prototype.strokeRoundRect2 = function(x,y,width,height,radius){
+    this._ctx.beginPath();
+    this.roundRect2(x,y,width,height,radius);
+    this._ctx.stroke();
+};
+
+/**
  * Resets the current path.
  */
 Context2d.prototype.beginPath = function(){
@@ -730,6 +796,49 @@ Context2d.prototype.rect4 = function(x,y,w,h){
  */
 Context2d.prototype.rectr = function(r){
     this._ctx.rect(r[0],r[1],r[2],r[3]);
+};
+
+/**
+ * Creates a new close rounded rectangular subpath.
+ * @param rect
+ * @param radius
+ */
+Context2d.prototype.roundRect = function(rect,radius){
+    this.roundRect2(rect[0],rect[1],rect[2],rect[3],radius);
+};
+
+/**
+ * Creates a new close rounded rectangular subpath.
+ * @param origin
+ * @param size
+ * @param radius
+ */
+Context2d.prototype.roundRect2v = function(origin,size,radius){
+    this.roundRect2(origin[0],origin[1],size[0],size[1],radius);
+};
+
+/**
+ * Creates a new close rounded rectangular subpath.
+ * @param x
+ * @param y
+ * @param width
+ * @param height
+ * @param radius
+ */
+Context2d.prototype.roundRect2 = function(x,y,width,height,radius){
+    radius = radius || 0;
+    radius = width < (2 * radius) ? width * 0.5 : radius;
+    radius = height < (2 * radius) ? height * 0.5 : radius;
+
+    const xw = x + width;
+    const yh = y + height;
+
+    this._ctx.moveTo(x + radius, y);
+    this._ctx.arcTo(xw, y, xw, yh, radius);
+    this._ctx.arcTo(xw, yh, x, yh, radius);
+    this._ctx.arcTo(x, yh, x, y, radius);
+    this._ctx.arcTo(x, y, xw, y, radius);
+    this._ctx.closePath();
 };
 
 /**
