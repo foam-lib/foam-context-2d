@@ -368,9 +368,10 @@ Context2d.prototype.beginPath = function(){
 
 /**
  * Fills subpaths by using the current fill style.
+ * @param fillRule
  */
-Context2d.prototype.fill = function(){
-    this._ctx.fill();
+Context2d.prototype.fill = function(fillRule){
+    this._ctx.fill(fillRule);
 };
 
 /**
