@@ -117,7 +117,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Sets the current alpha or transparency value that is applied to global composite rendering operations.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param globalAlpha
          */
         set : function(globalAlpha){
@@ -126,7 +126,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Returns the current alpha or transparency value that is applied to global composite rendering operations.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {globalAlpha|{set, get}|*|number}
          */
         get : function(){
@@ -146,7 +146,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Returns a value that indicates how source images are drawn onto a destination image.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {globalCompositeOperation|{set, get}|*|string}
          */
         get : function(){
@@ -166,7 +166,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Returns the current style that is used for strokes (lines) on shapes
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {strokeStyle|{set, get}|null|string|*|string}
          */
         get : function(){
@@ -186,7 +186,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Returns the current style that is used to fill shapes.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {fillStyle|{set, get}|null|string|String|CanvasGradient|CanvasPattern|*}
          */
         get : function(){
@@ -598,7 +598,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Sets the current line width in pixels.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param lineWidth
          */
         set : function(lineWidth){
@@ -607,7 +607,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Returns the current line width in pixels.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {*}
          */
         get : function(){
@@ -618,7 +618,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Sets the current line cap style.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param lineCap
          */
         set : function(lineCap){
@@ -627,7 +627,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Returns the current line cap style.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {lineCap|{set, get}|null|string|*|string}
          */
         get : function(){
@@ -638,7 +638,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Sets the type type of corner that is created when two lines meet.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param lineJoin
          */
         set : function(lineJoin){
@@ -647,7 +647,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Returns the type type of corner that is created when two lines meet.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {lineJoin|{set, get}|null|string|*|string}
          */
         get : function(){
@@ -658,7 +658,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Sets the maximum allowed ratio between half of the lineWidth value and the miter length.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param miterLimit
          */
         set : function(miterLimit){
@@ -667,7 +667,7 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Returns the maximum allowed ratio between half of the lineWidth value and the miter length.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {miterLimit|{set, get}|null|string|Number}
          */
         get : function(){
@@ -708,7 +708,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Sets the current font for the context.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param font
          */
         set : function(font){
@@ -717,7 +717,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Returns the current font for the context.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {font|{set, get}|*|string}
          */
         get : function(){
@@ -728,7 +728,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Sets the current anchor point or alignment settings for text in the current context.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param textAlign
          */
         set : function(textAlign){
@@ -737,7 +737,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Returns the current anchor point or alignment settings for text in the current context.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {textAlign|{set, get}|*|string}
          */
         get : function(){
@@ -748,7 +748,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Sets the current settings for the font baseline alignment.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param textBaseline
          */
         set : function(textBaseline){
@@ -757,7 +757,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Returns the current settings for the font baseline alignment.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {textBaseline|{set, get}|*|string}
          */
         get : function(){
@@ -973,7 +973,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Sets the horizontal distance of a shadow from a shape.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param shadowOffsetX
          */
         set : function(shadowOffsetX){
@@ -982,7 +982,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Returns the horizontal distance of a shadow from a shape.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {shadowOffsetX|{set, get}|*|Number}
          */
         get : function(){
@@ -993,7 +993,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Sets the vertical distance of a shadow from a shape.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param shadowOffsetY
          */
         set : function(shadowOffsetY){
@@ -1002,7 +1002,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Returns the vertical distance of a shadow from a shape.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {shadowOffsetY|{set, get}|*|Number}
          */
         get : function(){
@@ -1013,7 +1013,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Sets the current level of blur that is applied to shadows.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param shadowBlur
          */
         set : function(shadowBlur){
@@ -1022,7 +1022,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Returns the current level of blur that is applied to shadows.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {shadowBlur|{set, get}|*|Number}
          */
         get : function(){
@@ -1033,7 +1033,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Sets the color to use for shadows.
          * @scope instance
-         * @setter
+         * @custom_setter
          * @param shadowColor
          */
         set : function(shadowColor){
@@ -1042,7 +1042,7 @@ Object.defineProperties(Context2d.prototype,{
         /**
          * Returns the color to use for shadows.
          * @scope instance
-         * @getter
+         * @custom_getter
          * @returns {shadowColor|{set, get}|string}
          */
         get : function(){
