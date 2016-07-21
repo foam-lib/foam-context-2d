@@ -118,6 +118,7 @@ Object.defineProperties(Context2d.prototype, {
          * Sets the current alpha or transparency value that is applied to global composite rendering operations.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param globalAlpha
          */
         set : function(globalAlpha){
@@ -127,6 +128,7 @@ Object.defineProperties(Context2d.prototype, {
          * Returns the current alpha or transparency value that is applied to global composite rendering operations.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {globalAlpha|{set, get}|*|number}
          */
         get : function(){
@@ -138,6 +140,7 @@ Object.defineProperties(Context2d.prototype, {
          * Sets the value that indicates how source images are drawn onto a destination image.
          * @scope instance
          * @setter
+         * @custom_memberof Canvas2d
          * @param globalCompositeOperation
          */
         set : function(globalCompositeOperation){
@@ -147,6 +150,7 @@ Object.defineProperties(Context2d.prototype, {
          * Returns a value that indicates how source images are drawn onto a destination image.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {globalCompositeOperation|{set, get}|*|string}
          */
         get : function(){
@@ -157,7 +161,8 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Sets the current style that is used for strokes (lines) on shapes
          * @scope instance
-         * @setter
+         * @custom_setter
+         * @custom_memberof Canvas2d
          * @param strokeStyle
          */
         set : function(strokeStyle){
@@ -167,6 +172,7 @@ Object.defineProperties(Context2d.prototype, {
          * Returns the current style that is used for strokes (lines) on shapes
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {strokeStyle|{set, get}|null|string|*|string}
          */
         get : function(){
@@ -177,7 +183,8 @@ Object.defineProperties(Context2d.prototype, {
         /**
          * Sets the current style that is used to fill shapes.
          * @scope instance
-         * @setter
+         * @custom_setter
+         * @custom_memberof Canvas2d
          * @param fillStyle
          */
         set : function(fillStyle){
@@ -187,6 +194,7 @@ Object.defineProperties(Context2d.prototype, {
          * Returns the current style that is used to fill shapes.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {fillStyle|{set, get}|null|string|String|CanvasGradient|CanvasPattern|*}
          */
         get : function(){
@@ -599,6 +607,7 @@ Object.defineProperties(Context2d.prototype, {
          * Sets the current line width in pixels.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param lineWidth
          */
         set : function(lineWidth){
@@ -608,6 +617,7 @@ Object.defineProperties(Context2d.prototype, {
          * Returns the current line width in pixels.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {*}
          */
         get : function(){
@@ -619,6 +629,7 @@ Object.defineProperties(Context2d.prototype, {
          * Sets the current line cap style.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param lineCap
          */
         set : function(lineCap){
@@ -628,6 +639,7 @@ Object.defineProperties(Context2d.prototype, {
          * Returns the current line cap style.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {lineCap|{set, get}|null|string|*|string}
          */
         get : function(){
@@ -639,6 +651,7 @@ Object.defineProperties(Context2d.prototype, {
          * Sets the type type of corner that is created when two lines meet.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param lineJoin
          */
         set : function(lineJoin){
@@ -648,6 +661,7 @@ Object.defineProperties(Context2d.prototype, {
          * Returns the type type of corner that is created when two lines meet.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {lineJoin|{set, get}|null|string|*|string}
          */
         get : function(){
@@ -659,6 +673,7 @@ Object.defineProperties(Context2d.prototype, {
          * Sets the maximum allowed ratio between half of the lineWidth value and the miter length.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param miterLimit
          */
         set : function(miterLimit){
@@ -668,6 +683,7 @@ Object.defineProperties(Context2d.prototype, {
          * Returns the maximum allowed ratio between half of the lineWidth value and the miter length.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {miterLimit|{set, get}|null|string|Number}
          */
         get : function(){
@@ -709,6 +725,7 @@ Object.defineProperties(Context2d.prototype,{
          * Sets the current font for the context.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param font
          */
         set : function(font){
@@ -718,6 +735,7 @@ Object.defineProperties(Context2d.prototype,{
          * Returns the current font for the context.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {font|{set, get}|*|string}
          */
         get : function(){
@@ -729,6 +747,7 @@ Object.defineProperties(Context2d.prototype,{
          * Sets the current anchor point or alignment settings for text in the current context.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param textAlign
          */
         set : function(textAlign){
@@ -738,6 +757,7 @@ Object.defineProperties(Context2d.prototype,{
          * Returns the current anchor point or alignment settings for text in the current context.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {textAlign|{set, get}|*|string}
          */
         get : function(){
@@ -749,6 +769,7 @@ Object.defineProperties(Context2d.prototype,{
          * Sets the current settings for the font baseline alignment.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param textBaseline
          */
         set : function(textBaseline){
@@ -758,6 +779,7 @@ Object.defineProperties(Context2d.prototype,{
          * Returns the current settings for the font baseline alignment.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {textBaseline|{set, get}|*|string}
          */
         get : function(){
@@ -974,6 +996,7 @@ Object.defineProperties(Context2d.prototype,{
          * Sets the horizontal distance of a shadow from a shape.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param shadowOffsetX
          */
         set : function(shadowOffsetX){
@@ -983,6 +1006,7 @@ Object.defineProperties(Context2d.prototype,{
          * Returns the horizontal distance of a shadow from a shape.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {shadowOffsetX|{set, get}|*|Number}
          */
         get : function(){
@@ -994,6 +1018,7 @@ Object.defineProperties(Context2d.prototype,{
          * Sets the vertical distance of a shadow from a shape.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param shadowOffsetY
          */
         set : function(shadowOffsetY){
@@ -1003,6 +1028,7 @@ Object.defineProperties(Context2d.prototype,{
          * Returns the vertical distance of a shadow from a shape.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {shadowOffsetY|{set, get}|*|Number}
          */
         get : function(){
@@ -1014,6 +1040,7 @@ Object.defineProperties(Context2d.prototype,{
          * Sets the current level of blur that is applied to shadows.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param shadowBlur
          */
         set : function(shadowBlur){
@@ -1023,6 +1050,7 @@ Object.defineProperties(Context2d.prototype,{
          * Returns the current level of blur that is applied to shadows.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {shadowBlur|{set, get}|*|Number}
          */
         get : function(){
@@ -1034,6 +1062,7 @@ Object.defineProperties(Context2d.prototype,{
          * Sets the color to use for shadows.
          * @scope instance
          * @custom_setter
+         * @custom_memberof Canvas2d
          * @param shadowColor
          */
         set : function(shadowColor){
@@ -1043,6 +1072,7 @@ Object.defineProperties(Context2d.prototype,{
          * Returns the color to use for shadows.
          * @scope instance
          * @custom_getter
+         * @custom_memberof Canvas2d
          * @returns {shadowColor|{set, get}|string}
          */
         get : function(){
