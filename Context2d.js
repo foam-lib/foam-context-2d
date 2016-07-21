@@ -2,6 +2,14 @@
 // CANVASRENDERINGCONTEXT2D
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+/**
+ * Context2d constructor
+ * @class
+ * @classdesc
+ * 2d canvas context representation
+ * @param canvas
+ * @constructor
+ */
 function Context2d(canvas){
     this._ctx = canvas.getContext('2d');
 }
@@ -105,46 +113,82 @@ Context2d.prototype.setTransform = function(m11,m12,m21,m22,dx,dy){
 };
 
 Object.defineProperties(Context2d.prototype, {
-    /**
-     * Gets or sets the current alpha or transparency value that is applied to global composite rendering operations.
-     */
     globalAlpha : {
+        /**
+         * Sets the current alpha or transparency value that is applied to global composite rendering operations.
+         * @scope instance
+         * @setter
+         * @param globalAlpha
+         */
         set : function(globalAlpha){
             this._ctx.globalAlpha = globalAlpha;
         },
+        /**
+         * Returns the current alpha or transparency value that is applied to global composite rendering operations.
+         * @scope instance
+         * @getter
+         * @returns {globalAlpha|{set, get}|*|number}
+         */
         get : function(){
             return this._ctx.globalAlpha;
         }
     },
-    /**
-     * Gets or sets a value that indicates how source images are drawn onto a destination image.
-     */
     globalCompositeOperation : {
+        /**
+         * Sets the value that indicates how source images are drawn onto a destination image.
+         * @scope instance
+         * @setter
+         * @param globalCompositeOperation
+         */
         set : function(globalCompositeOperation){
             this._ctx.globalCompositeOperation = globalCompositeOperation;
         },
+        /**
+         * Returns a value that indicates how source images are drawn onto a destination image.
+         * @scope instance
+         * @getter
+         * @returns {globalCompositeOperation|{set, get}|*|string}
+         */
         get : function(){
             return this._ctx.globalCompositeOperation;
         }
     },
-    /**
-     * Gets or sets the current style that is used for strokes (lines) on shapes.
-     */
     strokeStyle : {
+        /**
+         * Sets the current style that is used for strokes (lines) on shapes
+         * @scope instance
+         * @setter
+         * @param strokeStyle
+         */
         set : function(strokeStyle){
             this._ctx.strokeStyle = strokeStyle;
         },
+        /**
+         * Returns the current style that is used for strokes (lines) on shapes
+         * @scope instance
+         * @getter
+         * @returns {strokeStyle|{set, get}|null|string|*|string}
+         */
         get : function(){
             return this._ctx.strokeStyle;
         }
     },
-    /**
-     * Gets or sets the current style that is used to fill shapes.
-     */
     fillStyle : {
+        /**
+         * Sets the current style that is used to fill shapes.
+         * @scope instance
+         * @setter
+         * @param fillStyle
+         */
         set : function(fillStyle){
             this._ctx.fillStyle = fillStyle;
         },
+        /**
+         * Returns the current style that is used to fill shapes.
+         * @scope instance
+         * @getter
+         * @returns {fillStyle|{set, get}|null|string|String|CanvasGradient|CanvasPattern|*}
+         */
         get : function(){
             return this._ctx.fillStyle;
         }
@@ -550,49 +594,82 @@ Context2d.prototype.putImageData = function(imagedata,dp,dirtydp,dirtyds){
 };
 
 Object.defineProperties(Context2d.prototype, {
-    /**
-     * Gets or sets the current line width, in pixels.
-     */
     lineWidth : {
+        /**
+         * Sets the current line width in pixels.
+         * @scope instance
+         * @setter
+         * @param lineWidth
+         */
         set : function(lineWidth){
             this._ctx.lineWidth = lineWidth;
         },
+        /**
+         * Returns the current line width in pixels.
+         * @scope instance
+         * @getter
+         * @returns {*}
+         */
         get : function(){
             return this._ctx.lineWidth;
         }
     },
-
-    /**
-     * Gets or sets the current line cap style.
-     */
     lineCap : {
+        /**
+         * Sets the current line cap style.
+         * @scope instance
+         * @setter
+         * @param lineCap
+         */
         set : function(lineCap){
             this._ctx.lineCap = lineCap;
         },
+        /**
+         * Returns the current line cap style.
+         * @scope instance
+         * @getter
+         * @returns {lineCap|{set, get}|null|string|*|string}
+         */
         get : function(){
             return this._ctx.lineCap;
         }
     },
-
-    /**
-     * Gets or sets the type of corner that is created when two lines meet.
-     */
     lineJoin : {
+        /**
+         * Sets the type type of corner that is created when two lines meet.
+         * @scope instance
+         * @setter
+         * @param lineJoin
+         */
         set : function(lineJoin){
             this._ctx.lineJoin = lineJoin;
         },
+        /**
+         * Returns the type type of corner that is created when two lines meet.
+         * @scope instance
+         * @getter
+         * @returns {lineJoin|{set, get}|null|string|*|string}
+         */
         get : function(){
             return this._ctx.lineJoin;
         }
     },
-
-    /**
-     * Gets or sets the maximum allowed ratio between half of the lineWidth value and the miter length.
-     */
     miterLimit : {
+        /**
+         * Sets the maximum allowed ratio between half of the lineWidth value and the miter length.
+         * @scope instance
+         * @setter
+         * @param miterLimit
+         */
         set : function(miterLimit){
             miterLimit.fillStyle = miterLimit;
         },
+        /**
+         * Returns the maximum allowed ratio between half of the lineWidth value and the miter length.
+         * @scope instance
+         * @getter
+         * @returns {miterLimit|{set, get}|null|string|Number}
+         */
         get : function(){
             return this._ctx.miterLimit;
         }
@@ -627,38 +704,62 @@ Object.defineProperty(Context2d.prototype,'lineDashOffset',{
 });
 
 Object.defineProperties(Context2d.prototype,{
-    /**
-     * Gets or sets the current font for the context.
-     */
     font : {
+        /**
+         * Sets the current font for the context.
+         * @scope instance
+         * @setter
+         * @param font
+         */
         set : function(font){
             this._ctx.font = font;
         },
+        /**
+         * Returns the current font for the context.
+         * @scope instance
+         * @getter
+         * @returns {font|{set, get}|*|string}
+         */
         get : function(){
             return this._ctx.font;
         }
     },
-
-    /**
-     *
-     Gets or sets the current anchor point or alignment settings for text in the current context.
-     */
     textAlign : {
+        /**
+         * Sets the current anchor point or alignment settings for text in the current context.
+         * @scope instance
+         * @setter
+         * @param textAlign
+         */
         set : function(textAlign){
             this._ctx.textAlign = textAlign;
         },
+        /**
+         * Returns the current anchor point or alignment settings for text in the current context.
+         * @scope instance
+         * @getter
+         * @returns {textAlign|{set, get}|*|string}
+         */
         get : function(){
             return this._ctx.textAlign;
         }
     },
-
-    /**
-     * Gets or sets the current settings for the font baseline alignment.
-     */
     textBaseline : {
+        /**
+         * Sets the current settings for the font baseline alignment.
+         * @scope instance
+         * @setter
+         * @param textBaseline
+         */
         set : function(textBaseline){
             this._ctx.textBaseline = textBaseline;
         },
+        /**
+         * Returns the current settings for the font baseline alignment.
+         * @scope instance
+         * @getter
+         * @returns {textBaseline|{set, get}|*|string}
+         */
         get : function(){
             return this._ctx.textBaseline;
         }
@@ -868,49 +969,82 @@ Context2d.prototype.arc2 = function(x,y,radius,startAngle,endAngle,counterclockw
 };
 
 Object.defineProperties(Context2d.prototype,{
-    /**
-     * Gets or sets the horizontal distance of a shadow from a shape.
-     */
     shadowOffsetX : {
+        /**
+         * Sets the horizontal distance of a shadow from a shape.
+         * @scope instance
+         * @setter
+         * @param shadowOffsetX
+         */
         set : function(shadowOffsetX){
             this._ctx.shadowOffsetX = shadowOffsetX;
         },
+        /**
+         * Returns the horizontal distance of a shadow from a shape.
+         * @scope instance
+         * @getter
+         * @returns {shadowOffsetX|{set, get}|*|Number}
+         */
         get : function(){
             return this._ctx.shadowOffsetX;
         }
     },
-
-    /**
-     * Gets or sets the vertical distance of a shadow from a shape.
-     */
     shadowOffsetY : {
+        /**
+         * Sets the vertical distance of a shadow from a shape.
+         * @scope instance
+         * @setter
+         * @param shadowOffsetY
+         */
         set : function(shadowOffsetY){
             this._ctx.shadowOffsetY = shadowOffsetY;
         },
+        /**
+         * Returns the vertical distance of a shadow from a shape.
+         * @scope instance
+         * @getter
+         * @returns {shadowOffsetY|{set, get}|*|Number}
+         */
         get : function(){
             return this._ctx.shadowOffsetY;
         }
     },
-
-    /**
-     * Gets or sets the current level of blur that is applied to shadows.
-     */
     shadowBlur : {
+        /**
+         * Sets the current level of blur that is applied to shadows.
+         * @scope instance
+         * @setter
+         * @param shadowBlur
+         */
         set : function(shadowBlur){
             this._ctx.shadowBlur = shadowBlur;
         },
+        /**
+         * Returns the current level of blur that is applied to shadows.
+         * @scope instance
+         * @getter
+         * @returns {shadowBlur|{set, get}|*|Number}
+         */
         get : function(){
             return this._ctx.shadowBlur;
         }
     },
-
-    /**
-     * Gets or sets the color to use for shadows.
-     */
     shadowColor : {
+        /**
+         * Sets the color to use for shadows.
+         * @scope instance
+         * @setter
+         * @param shadowColor
+         */
         set : function(shadowColor){
             this._ctx.shadowBlur = shadowColor;
         },
+        /**
+         * Returns the color to use for shadows.
+         * @scope instance
+         * @getter
+         * @returns {shadowColor|{set, get}|string}
+         */
         get : function(){
             return this._ctx.shadowColor;
         }
