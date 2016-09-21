@@ -55,6 +55,22 @@ Context2d.prototype.getSize = function(out){
 };
 
 /**
+ * Returns the canvas current width.
+ * @returns {number}
+ */
+Context2d.prototype.getWidth = function(){
+    return this._ctx.canvas.width;
+};
+
+/**
+ * Returns the canvas current height.
+ * @returns {number}
+ */
+Context2d.prototype.getHeight = function(){
+    return this._ctx.canvas.height;
+};
+
+/**
  * Saves the state of the current context.
  */
 Context2d.prototype.save = function(){
@@ -827,6 +843,66 @@ Object.defineProperties(Context2d.prototype,{
         }
     }
 });
+
+/**
+ * Sets style properties from description.
+ * @param style
+ */
+Context2d.prototype.setStyle = function(style){
+    if(style.strokeStyle !== undefined){
+        this.strokeStyle = style.strokeStyle;
+    }
+    if(style.fillStyle !== undefined){
+        this.fillStyle = style.fillStyle;
+    }
+    if(style.lineWidth !== undefined){
+        this.lineWidth = style.lineWidth;
+    }
+    if(style.lineCap !== undefined){
+        this.lineCap = style.lineCap;
+    }
+    if(style.lineJoin !== undefined){
+        this.lineJoin = style.lineJoin;
+    }
+    if(style.miterLimit !== undefined){
+        this.miterLimit = style.miterLimit;
+    }
+    if(style.lineDash !== undefined){
+        this.setLineDash(style.lineDash);
+    }
+    if(style.lineDashOffset !== undefined){
+        this.lineDashOffset = style.lineDashOffset;
+    }
+    if(style.font !== undefined){
+        this.font = style.font;
+    }
+    if(style.textAlign !== undefined){
+        this.textAlign = style.textAlign;
+    }
+    if(style.textBaseline !== undefined){
+        this.textBaseline = style.textBaseline;
+    }
+};
+
+/**
+ * Returns the current style set.
+ * @returns {{strokeStyle: *, fillStyle: *, lineWidth: *, lineCap: *, lineJoin: *, miterLimit: *, lineDash, lineDashOffset: *, font: *, textAlign: *, textBaseline: *}}
+ */
+Context2d.prototype.getStyle = function(){
+    return {
+        strokeStyle : this.strokeStyle,
+        fillStyle : this.fillStyle,
+        lineWidth : this.lineWidth,
+        lineCap : this.lineCap,
+        lineJoin : this.lineJoin,
+        miterLimit: this.miterLimit,
+        lineDash : this.getLineDash(),
+        lineDashOffset : this.lineDashOffset,
+        font : this.font,
+        textAlign : this.textAlign,
+        textBaseline : this.textAlign
+    };
+};
 
 /**
  * Closes the current subpath and starts a new subpath that has a start point that is equal to the end of the closed subpath.
