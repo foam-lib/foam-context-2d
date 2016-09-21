@@ -11,8 +11,48 @@
  * @constructor
  */
 function Context2d(canvas){
+    canvas = canvas || document.createElement('canvas');
     this._ctx = canvas.getContext('2d');
 }
+
+/**
+ * Returns a reference to the HTMLCanvasElement object that is associated with the context.
+ */
+Object.defineProperty(Context2d.prototype,'canvas',{
+    get : function(){
+        return this._ctx.canvas;
+    }
+});
+
+/**
+ * Sets the context canvas size.
+ * @param size
+ */
+Context2d.prototype.setSize = function(size){
+    this.setSize2(size[0],size[1]);
+};
+
+/**
+ * Sets the context canvas size.
+ * @param width
+ * @param height
+ */
+Context2d.prototype.setSize2 = function(width,height){
+    this._ctx.canvas.width = width;
+    this._ctx.canvas.height = height;
+};
+
+/**
+ * Returns the canvas current size.
+ * @param out
+ * @returns {number[]}
+ */
+Context2d.prototype.getSize = function(out){
+    out = out || [0,0];
+    out[0] = this._ctx.canvas.width;
+    out[1] = this._ctx.canvas.height;
+    return out;
+};
 
 /**
  * Saves the state of the current context.
@@ -116,7 +156,7 @@ Object.defineProperties(Context2d.prototype, {
     globalAlpha : {
         /**
          * Sets the current alpha or transparency value that is applied to global composite rendering operations.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param globalAlpha
@@ -126,7 +166,7 @@ Object.defineProperties(Context2d.prototype, {
         },
         /**
          * Returns the current alpha or transparency value that is applied to global composite rendering operations.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {globalAlpha|{set, get}|*|number}
@@ -138,8 +178,8 @@ Object.defineProperties(Context2d.prototype, {
     globalCompositeOperation : {
         /**
          * Sets the value that indicates how source images are drawn onto a destination image.
-         * @scope instance
-         * @setter
+         * @custom_scope instance
+         * @custom_setter
          * @custom_memberof Context2d
          * @param globalCompositeOperation
          */
@@ -148,7 +188,7 @@ Object.defineProperties(Context2d.prototype, {
         },
         /**
          * Returns a value that indicates how source images are drawn onto a destination image.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {globalCompositeOperation|{set, get}|*|string}
@@ -160,7 +200,7 @@ Object.defineProperties(Context2d.prototype, {
     strokeStyle : {
         /**
          * Sets the current style that is used for strokes (lines) on shapes
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param strokeStyle
@@ -170,7 +210,7 @@ Object.defineProperties(Context2d.prototype, {
         },
         /**
          * Returns the current style that is used for strokes (lines) on shapes
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {strokeStyle|{set, get}|null|string|*|string}
@@ -182,7 +222,7 @@ Object.defineProperties(Context2d.prototype, {
     fillStyle : {
         /**
          * Sets the current style that is used to fill shapes.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param fillStyle
@@ -192,7 +232,7 @@ Object.defineProperties(Context2d.prototype, {
         },
         /**
          * Returns the current style that is used to fill shapes.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {fillStyle|{set, get}|null|string|String|CanvasGradient|CanvasPattern|*}
@@ -605,7 +645,7 @@ Object.defineProperties(Context2d.prototype, {
     lineWidth : {
         /**
          * Sets the current line width in pixels.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param lineWidth
@@ -615,7 +655,7 @@ Object.defineProperties(Context2d.prototype, {
         },
         /**
          * Returns the current line width in pixels.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {*}
@@ -627,7 +667,7 @@ Object.defineProperties(Context2d.prototype, {
     lineCap : {
         /**
          * Sets the current line cap style.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param lineCap
@@ -637,7 +677,7 @@ Object.defineProperties(Context2d.prototype, {
         },
         /**
          * Returns the current line cap style.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {lineCap|{set, get}|null|string|*|string}
@@ -649,7 +689,7 @@ Object.defineProperties(Context2d.prototype, {
     lineJoin : {
         /**
          * Sets the type type of corner that is created when two lines meet.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param lineJoin
@@ -659,7 +699,7 @@ Object.defineProperties(Context2d.prototype, {
         },
         /**
          * Returns the type type of corner that is created when two lines meet.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {lineJoin|{set, get}|null|string|*|string}
@@ -671,7 +711,7 @@ Object.defineProperties(Context2d.prototype, {
     miterLimit : {
         /**
          * Sets the maximum allowed ratio between half of the lineWidth value and the miter length.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param miterLimit
@@ -681,7 +721,7 @@ Object.defineProperties(Context2d.prototype, {
         },
         /**
          * Returns the maximum allowed ratio between half of the lineWidth value and the miter length.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {miterLimit|{set, get}|null|string|Number}
@@ -723,7 +763,7 @@ Object.defineProperties(Context2d.prototype,{
     font : {
         /**
          * Sets the current font for the context.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param font
@@ -733,7 +773,7 @@ Object.defineProperties(Context2d.prototype,{
         },
         /**
          * Returns the current font for the context.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {font|{set, get}|*|string}
@@ -745,7 +785,7 @@ Object.defineProperties(Context2d.prototype,{
     textAlign : {
         /**
          * Sets the current anchor point or alignment settings for text in the current context.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param textAlign
@@ -755,7 +795,7 @@ Object.defineProperties(Context2d.prototype,{
         },
         /**
          * Returns the current anchor point or alignment settings for text in the current context.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {textAlign|{set, get}|*|string}
@@ -767,7 +807,7 @@ Object.defineProperties(Context2d.prototype,{
     textBaseline : {
         /**
          * Sets the current settings for the font baseline alignment.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param textBaseline
@@ -777,7 +817,7 @@ Object.defineProperties(Context2d.prototype,{
         },
         /**
          * Returns the current settings for the font baseline alignment.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {textBaseline|{set, get}|*|string}
@@ -994,7 +1034,7 @@ Object.defineProperties(Context2d.prototype,{
     shadowOffsetX : {
         /**
          * Sets the horizontal distance of a shadow from a shape.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param shadowOffsetX
@@ -1004,7 +1044,7 @@ Object.defineProperties(Context2d.prototype,{
         },
         /**
          * Returns the horizontal distance of a shadow from a shape.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {shadowOffsetX|{set, get}|*|Number}
@@ -1016,7 +1056,7 @@ Object.defineProperties(Context2d.prototype,{
     shadowOffsetY : {
         /**
          * Sets the vertical distance of a shadow from a shape.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param shadowOffsetY
@@ -1026,7 +1066,7 @@ Object.defineProperties(Context2d.prototype,{
         },
         /**
          * Returns the vertical distance of a shadow from a shape.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {shadowOffsetY|{set, get}|*|Number}
@@ -1038,7 +1078,7 @@ Object.defineProperties(Context2d.prototype,{
     shadowBlur : {
         /**
          * Sets the current level of blur that is applied to shadows.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param shadowBlur
@@ -1048,7 +1088,7 @@ Object.defineProperties(Context2d.prototype,{
         },
         /**
          * Returns the current level of blur that is applied to shadows.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {shadowBlur|{set, get}|*|Number}
@@ -1060,7 +1100,7 @@ Object.defineProperties(Context2d.prototype,{
     shadowColor : {
         /**
          * Sets the color to use for shadows.
-         * @scope instance
+         * @custom_scope instance
          * @custom_setter
          * @custom_memberof Context2d
          * @param shadowColor
@@ -1070,7 +1110,7 @@ Object.defineProperties(Context2d.prototype,{
         },
         /**
          * Returns the color to use for shadows.
-         * @scope instance
+         * @custom_scope instance
          * @custom_getter
          * @custom_memberof Context2d
          * @returns {shadowColor|{set, get}|string}
